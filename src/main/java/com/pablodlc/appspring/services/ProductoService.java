@@ -31,6 +31,8 @@ public class ProductoService {
 
     // Método para actualizar un producto
     public ProductoModel updateProducto(Long id, ProductoModel productoActualizado) {
+        
+        @SuppressWarnings("null")
         // Verificar si el producto existe en la base de datos
         ProductoModel productoExistente = productoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Producto no encontrado con ID: " + id));
@@ -42,5 +44,10 @@ public class ProductoService {
 
         // Guardar los cambios en la base de datos
         return productoRepository.save(productoExistente);
+    }
+
+    @SuppressWarnings("null")
+    public void removeProducto(Long id) {
+        productoRepository.deleteById(id);
     }
 }
