@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,15 +27,23 @@ public class ProductoController {
 
     // Hacemos un metodo get para recibir los usuarios de la api
     @GetMapping()
-    public ResponseEntity getProductos() {
+    public ResponseEntity<?> getProductos() {
         return new ResponseEntity<>(productoService.getProductos(), HttpStatus.OK);
     }
 
     // Metodo para hacer un post a la api, RequestBody nos permite pasarle un 
     //parametro por la url para hacer el post
     @PostMapping()
-    public ResponseEntity addProducto(@RequestBody ProductoDTO productoDto) { 
-        productoService.addProducto(new ProductoModel(productoDto.name(), productoDto.price()));
+    public ResponseEntity<?> addProducto(@RequestBody ProductoDTO productoDto) { 
+        productoService.addProducto(new ProductoModel(productoDto.name(), productoDto.price(), productoDto.img()));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    // Endpoint para actualizar un producto por su ID
+    @PutMapping("/{id}")
+    public ResponseEntity<ProductoModel> actualizarProducto(@PathVariable Long id, @RequestBody ProductoModel productoActualizado) {
+        ProductoModel producto = productoService.updateProducto(id, productoActualizado);
+        return new ResponseEntity<>(producto, HttpStatus.OK);
+    }
+
 }

@@ -24,10 +24,12 @@ public class ProductoModel {
     private Long id;
     private String name;
     private Double price;
+    private String img;
 
-    public ProductoModel(String name, Double price) {
+    public ProductoModel(String name, Double price, String img) {
         this.name = name;
         this.price = price;
+        this.img = img;
     }
 
 }
