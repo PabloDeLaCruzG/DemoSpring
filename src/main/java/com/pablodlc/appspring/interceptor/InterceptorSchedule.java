@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class InterceptorSchedule implements HandlerInterceptor {
 
     // Definición de las horas de inicio y fin del mantenimiento
-    private static final LocalTime INICIO = LocalTime.of(10, 0);
+    private static final LocalTime INICIO = LocalTime.of(1, 0);
     private static final LocalTime FIN = LocalTime.of(6, 0);
 
     // Método que se ejecuta antes de manejar la solicitud HTTP
