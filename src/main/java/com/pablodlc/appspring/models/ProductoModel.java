@@ -31,5 +31,4 @@ public class ProductoModel {
         this.price = price;
         this.img = img;
     }
-
 }

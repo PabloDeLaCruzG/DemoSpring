@@ -10,17 +10,20 @@ import com.pablodlc.appspring.interceptor.InterceptorSchedule;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
+    // Método para configurar el manejo de CORS (Cross-Origin Resource Sharing)
     @Override
     public void addCorsMappings(@SuppressWarnings("null") CorsRegistry registry) {
-        registry.addMapping("/api/**")
-                .allowedOrigins("http://localhost:3000")
-                .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .allowedHeaders("*");
+        // Define el patrón de URL para el cual se aplicará la configuración de CORS
+        registry.addMapping("/api/**") 
+                .allowedOrigins("http://localhost:3000") // Especifica los orígenes permitidos
+                .allowedMethods("GET", "POST", "PUT", "DELETE") // Especifica los métodos HTTP permitidos
+                .allowedHeaders("*"); // Especifica los encabezados HTTP permitidos
     }
 
+    // Método para agregar interceptores
     @Override
     public void addInterceptors(@SuppressWarnings("null") InterceptorRegistry registry) {
-        registry.addInterceptor(new InterceptorSchedule());
+        registry.addInterceptor(new InterceptorSchedule()); // Agrega un interceptor de tipo InterceptorSchedule
     }
 }
 

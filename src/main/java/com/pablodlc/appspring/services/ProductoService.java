@@ -13,7 +13,7 @@ import com.pablodlc.appspring.repositories.ProductoRepository;
 @Service
 public class ProductoService {
 
-    // Asignmaos autowired para que inyecte y busque los metodos de crudrepository
+    // Asignmaos autowired para que inyecte y busque los metodos de jparepository
     // en la interfaz
     @Autowired
     ProductoRepository productoRepository;
