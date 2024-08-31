@@ -1,3 +1,6 @@
+Actividad Spring - Acceso a Datos
+
+
 Introducción 
 
 He creado un nuevo proyecto Spring con las dependencias de Spring Data JPA, Spring Boot Devtools y Lombok. Para empezar, he creado una base de datos SQL en MySQLWorkbench, luego en el proyecto Spring he creado una estructura de paquetes para la creación y conexión de la ApiRest, una vez hecha la estructura, he hecho un controlador con los métodos de la Api GET, POST, PUT y REMOVE para controlar los datos, luego he creado otro controlador que obtiene una lista con una condición, por último, he creado un interceptor para definir un rango de horas de acceso a la web. Luego he hecho otro proyecto nuevo con React y la librería Axios para la conexión de Api, este proyecto ‘FrontEnd’ se conecta al otro proyecto ‘BackEnd’ a través de la Api. En el FrontEnd he creado una vista principal con el listado, un link a otra vista que contiene la lista con la condición, y botones para post, put y remove. 
